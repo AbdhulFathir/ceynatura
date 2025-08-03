@@ -186,6 +186,20 @@ body {
     overflow: hidden;
 }
 
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(45, 80, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(138, 69, 19, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(74, 124, 89, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
 .hero-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -270,55 +284,89 @@ body {
     animation: fadeInRight 1s ease-out 0.8s both;
 }
 
-.spice-jar {
+.hero-product {
     position: absolute;
-    width: 120px;
-    height: 160px;
-    background: var(--white);
+    width: 180px;
+    height: 180px;
     border-radius: 20px;
+    overflow: hidden;
     box-shadow: var(--shadow);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: var(--white);
     animation: float 3s ease-in-out infinite;
+    transition: var(--transition);
+    border: 3px solid var(--light-beige);
 }
 
-.spice-jar-1 {
+.hero-product::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--primary-green), var(--secondary-green));
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.hero-product:hover::before {
+    opacity: 1;
+}
+
+.hero-product:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-green);
+}
+
+.hero-product img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.hero-product:hover img {
+    transform: scale(1.1);
+}
+
+.product-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: var(--white);
+    padding: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    transform: translateY(100%);
+    transition: var(--transition);
+}
+
+.hero-product:hover .product-label {
+    transform: translateY(0);
+}
+
+.hero-product-1 {
     top: 50px;
     left: 50px;
     animation-delay: 0s;
 }
 
-.spice-jar-2 {
+.hero-product-2 {
     top: 150px;
     right: 50px;
     animation-delay: 1s;
 }
 
-.spice-jar-3 {
+.hero-product-3 {
     bottom: 50px;
     left: 100px;
     animation-delay: 2s;
-}
-
-.jar-content {
-    width: 80px;
-    height: 100px;
-    background: var(--accent-brown);
-    border-radius: 10px;
-    position: relative;
-}
-
-.jar-content::before {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 60px;
-    background: var(--primary-green);
-    border-radius: 50%;
 }
 
 @keyframes float {
@@ -866,7 +914,7 @@ body {
         min-width: 250px;
     }
 
-    .spice-jar {
+    .hero-product {
         display: none;
     }
 }
