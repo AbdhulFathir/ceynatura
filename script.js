@@ -260,12 +260,42 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Touch Device Detection
+// Touch Device Detection and Mobile Enhancements
 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
 if (isTouchDevice) {
     // Add touch-specific styles or behaviors
     document.body.classList.add('touch-device');
+    
+    // Enhanced touch interactions for hero products
+    document.querySelectorAll('.hero-product').forEach(product => {
+        product.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.95)';
+        });
+        
+        product.addEventListener('touchend', function() {
+            this.style.transform = '';
+        });
+        
+        // Show product label on touch
+        product.addEventListener('touchstart', function() {
+            const label = this.querySelector('.product-label');
+            if (label) {
+                label.style.transform = 'translateY(0)';
+                label.style.opacity = '0.9';
+            }
+        });
+        
+        product.addEventListener('touchend', function() {
+            const label = this.querySelector('.product-label');
+            if (label) {
+                setTimeout(() => {
+                    label.style.transform = 'translateY(100%)';
+                    label.style.opacity = '1';
+                }, 2000);
+            }
+        });
+    });
 }
 
 // Performance Optimization: Debounce scroll events
