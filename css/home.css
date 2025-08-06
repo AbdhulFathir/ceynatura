@@ -354,7 +354,7 @@
     font-size: 1.2rem;
 }
 
-.add-to-cart {
+.view-product {
     width: 100%;
     padding: 12px;
     background: var(--primary-green);
@@ -366,7 +366,7 @@
     transition: var(--transition);
 }
 
-.add-to-cart:hover {
+.view-product:hover {
     background: var(--secondary-green);
     transform: translateY(-2px);
 }
