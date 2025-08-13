@@ -1,3 +1,58 @@
+// Hero Slider Functionality
+let currentSlide = 0;
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('.dot');
+
+function showSlide(index) {
+    // Remove active class from all slides and dots
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Add active class to current slide and dot
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+function goToSlide(index) {
+    currentSlide = index;
+    showSlide(currentSlide);
+}
+
+// Auto-advance slides every 3 seconds
+let slideInterval = setInterval(nextSlide, 3000);
+
+// Pause auto-advance on hover
+const heroSlider = document.querySelector('.hero-slider');
+if (heroSlider) {
+    heroSlider.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+    });
+    
+    heroSlider.addEventListener('mouseleave', () => {
+        slideInterval = setInterval(nextSlide, 3000);
+    });
+}
+
+// Add click functionality to dots
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        goToSlide(index);
+        // Reset auto-advance timer
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 3000);
+    });
+});
+
+// Initialize first slide
+document.addEventListener('DOMContentLoaded', () => {
+    showSlide(0);
+});
+
 // Mobile Menu Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -267,35 +322,33 @@ if (isTouchDevice) {
     // Add touch-specific styles or behaviors
     document.body.classList.add('touch-device');
     
-    // Enhanced touch interactions for hero products
-    document.querySelectorAll('.hero-product').forEach(product => {
-        product.addEventListener('touchstart', function() {
-            this.style.transform = 'scale(0.95)';
+    // Enhanced touch interactions for hero slider
+    const heroSlider = document.querySelector('.hero-slider');
+    if (heroSlider) {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        heroSlider.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
         });
         
-        product.addEventListener('touchend', function() {
-            this.style.transform = '';
+        heroSlider.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
         });
         
-        // Show product label on touch
-        product.addEventListener('touchstart', function() {
-            const label = this.querySelector('.product-label');
-            if (label) {
-                label.style.transform = 'translateY(0)';
-                label.style.opacity = '0.9';
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchEndX < touchStartX - swipeThreshold) {
+                // Swipe left - next slide
+                nextSlide();
+            } else if (touchEndX > touchStartX + swipeThreshold) {
+                // Swipe right - previous slide
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
             }
-        });
-        
-        product.addEventListener('touchend', function() {
-            const label = this.querySelector('.product-label');
-            if (label) {
-                setTimeout(() => {
-                    label.style.transform = 'translateY(100%)';
-                    label.style.opacity = '1';
-                }, 2000);
-            }
-        });
-    });
+        }
+    }
 }
 
 // Performance Optimization: Debounce scroll events
