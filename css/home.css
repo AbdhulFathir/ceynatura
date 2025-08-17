@@ -18,10 +18,24 @@
     right: 0;
     bottom: 0;
     background-image: 
-        radial-gradient(circle at 20% 80%, rgba(45, 80, 22, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(138, 69, 19, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(74, 124, 89, 0.05) 0%, transparent 50%);
+        radial-gradient(circle at 20% 80%, rgba(45, 80, 22, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(138, 69, 19, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(74, 124, 89, 0.04) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
     pointer-events: none;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23458016' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.6;
 }
 
 .hero-container {
@@ -66,7 +80,45 @@
 .hero-buttons {
     display: flex;
     gap: 1rem;
+    margin-bottom: 2rem;
     animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.hero-trust-indicators {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(45, 80, 22, 0.1);
+    transition: all 0.3s ease;
+}
+
+.trust-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-green);
+}
+
+.trust-badge i {
+    color: var(--primary-green);
+    font-size: 1.1rem;
+}
+
+.trust-badge span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--primary-green);
 }
 
 .hero-image {
@@ -86,12 +138,36 @@
     border: 3px solid var(--light-beige);
     transition: all 0.3s ease;
     cursor: pointer;
+    animation: float 6s ease-in-out infinite;
 }
 
 .hero-slider:hover {
     transform: scale(1.02);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
     border-color: var(--primary-green);
+    animation-play-state: paused;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.hero-bg-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 10% 90%, rgba(138, 69, 19, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 10%, rgba(45, 80, 22, 0.05) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: -1;
 }
 
 .hero-slide {
@@ -129,12 +205,20 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
     color: var(--white);
-    padding: 15px;
-    font-size: 1rem;
+    padding: 20px 15px 15px;
+    font-size: 1.1rem;
     font-weight: 600;
     text-align: center;
+    backdrop-filter: blur(5px);
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.hero-slide:hover .product-label {
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    transform: translateY(-5px);
 }
 
 .slider-dots {
@@ -591,6 +675,19 @@
         flex-wrap: wrap;
     }
 
+    .hero-trust-indicators {
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .trust-badge {
+        padding: 0.6rem 0.8rem;
+    }
+
+    .trust-badge span {
+        font-size: 0.8rem;
+    }
+
     .hero-image {
         position: relative;
         margin-top: 2rem;
@@ -632,6 +729,19 @@
     .hero-slider {
         width: 280px;
         height: 280px;
+    }
+
+    .hero-trust-indicators {
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    .trust-badge {
+        padding: 0.5rem 0.7rem;
+    }
+
+    .trust-badge span {
+        font-size: 0.75rem;
     }
 
     .product-label {
