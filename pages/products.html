@@ -39,6 +39,13 @@
                 <li class="nav-item">
                     <a href="contact.html" class="nav-link">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a href="cart.html" class="nav-link cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        Cart
+                        <span class="cart-count" style="display: none;">0</span>
+                    </a>
+                </li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -54,6 +61,13 @@
             <div class="section-header">
                 <h1>Our Premium Products Collection</h1>
                 <p>Discover the authentic taste of Ceylon spices, teas, coconut products, and other organic goods, carefully sourced and naturally processed</p>
+                <div class="hero-actions">
+                    <a href="cart.html" class="btn btn-secondary">
+                        <i class="fas fa-shopping-cart"></i>
+                        View Cart
+                        <span class="cart-count" style="display: none;">0</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -78,7 +92,7 @@
         <div class="container">
             <div class="products-grid">
                 <!-- Black Pepper -->
-                <div class="product-card" data-category="pepper">
+                <div class="product-card" data-category="pepper" data-product-id="black-pepper">
                     <div class="product-badge">Premium</div>
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1649952052743-5e8f37c348c5?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Black Pepper">
@@ -95,14 +109,14 @@
                             <span class="sale-price">Rs. 380.00</span>
                         </div>
                         <div class="product-actions">
-                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="add-to-cart" onclick="addProductToCart(this)">Add to Cart</button>
                             <button class="view-details">View Details</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Ceylon Cinnamon -->
-                <div class="product-card" data-category="cinnamon">
+                <div class="product-card" data-category="cinnamon" data-product-id="ceylon-cinnamon">
                     <div class="product-badge">Sale!</div>
                     <div class="product-image">
                         <img src="https://5.imimg.com/data5/ANDROID/Default/2023/10/357112085/SB/YW/PX/93687326/product-jpeg-1000x1000.jpg" alt="Ceylon Cinnamon">
@@ -117,16 +131,17 @@
                         <div class="product-price">
                             <span class="original-price">Rs. 520.00</span>
                             <span class="sale-price">Rs. 440.00</span>
+                            <span class="sale-price">Rs. 440.00</span>
                         </div>
                         <div class="product-actions">
-                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="add-to-cart" onclick="addProductToCart(this)">Add to Cart</button>
                             <button class="view-details">View Details</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Green Cardamom -->
-                <div class="product-card" data-category="cardamom">
+                <div class="product-card" data-category="cardamom" data-product-id="green-cardamom">
                     <div class="product-badge">New</div>
                     <div class="product-image">
                         <img src="https://images.squarespace-cdn.com/content/v1/543aa467e4b0075aa785cbb8/1434469730932-PIRPJ8SQ0Y5PZNTNQUH0/image-asset.png?format=750w" alt="Green Cardamom">
@@ -143,14 +158,14 @@
                             <span class="sale-price">Rs. 580.00</span>
                         </div>
                         <div class="product-actions">
-                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="add-to-cart" onclick="addProductToCart(this)">Add to Cart</button>
                             <button class="view-details">View Details</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Nutmeg & Mace -->
-                <div class="product-card" data-category="nutmeg">
+                <div class="product-card" data-category="nutmeg" data-product-id="nutmeg-mace">
                     <div class="product-badge">Best Seller</div>
                     <div class="product-image">
                         <img src="https://blog.suvie.com/wp-content/uploads/2021/09/4905675255_62540c4bf6_b.jpg" alt="Nutmeg & Mace">
@@ -167,14 +182,14 @@
                             <span class="sale-price">Rs. 650.00</span>
                         </div>
                         <div class="product-actions">
-                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="add-to-cart" onclick="addProductToCart(this)">Add to Cart</button>
                             <button class="view-details">View Details</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Ceylon Cloves -->
-                <div class="product-card" data-category="cloves">
+                <div class="product-card" data-category="cloves" data-product-id="ceylon-cloves">
                     <div class="product-badge">Organic</div>
                     <div class="product-image">
                         <img src="https://m.media-amazon.com/images/I/61fcNa6PzOL._AC_.jpg" alt="Ceylon Cloves">
@@ -191,14 +206,14 @@
                             <span class="sale-price">Rs. 360.00</span>
                         </div>
                         <div class="product-actions">
-                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="add-to-cart" onclick="addProductToCart(this)">Add to Cart</button>
                             <button class="view-details">View Details</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Curry Powder Mix -->
-                <div class="product-card" data-category="mixes">
+                <div class="product-card" data-category="mixes" data-product-id="curry-powder-mix">
                     <div class="product-badge">Limited</div>
                     <div class="product-image">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu2Rm5aDUHB99fWXl6pktUUWnk1sKi8QS15A&s" alt="Curry Powder Mix">
@@ -215,14 +230,14 @@
                             <span class="sale-price">Rs. 720.00</span>
                         </div>
                         <div class="product-actions">
-                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="add-to-cart" onclick="addProductToCart(this)">Add to Cart</button>
                             <button class="view-details">View Details</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Additional Products -->
-                <div class="product-card" data-category="pepper">
+                <div class="product-card" data-category="pepper" data-product-id="white-pepper">
                     <div class="product-badge">Premium</div>
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1649952052743-5e8f37c348c5?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="White Pepper">
@@ -239,13 +254,13 @@
                             <span class="sale-price">Rs. 420.00</span>
                         </div>
                         <div class="product-actions">
-                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="add-to-cart" onclick="addProductToCart(this)">Add to Cart</button>
                             <button class="view-details">View Details</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="product-card" data-category="cinnamon">
+                <div class="product-card" data-category="cinnamon" data-product-id="cinnamon-powder">
                     <div class="product-badge">Organic</div>
                     <div class="product-image">
                         <img src="https://5.imimg.com/data5/ANDROID/Default/2023/10/357112085/SB/YW/PX/93687326/product-jpeg-1000x1000.jpg" alt="Cinnamon Powder">
@@ -262,13 +277,13 @@
                             <span class="sale-price">Rs. 380.00</span>
                         </div>
                         <div class="product-actions">
-                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="add-to-cart" onclick="addProductToCart(this)">Add to Cart</button>
                             <button class="view-details">View Details</button>
                         </div>
                     </div>
                 </div>
                 <!-- Ceylon Tea -->
-                <div class="product-card" data-category="tea">
+                <div class="product-card" data-category="tea" data-product-id="ceylon-tea">
                     <div class="product-badge">Signature</div>
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Ceylon Tea">
@@ -285,13 +300,13 @@
                             <span class="sale-price">Rs. 520.00</span>
                         </div>
                         <div class="product-actions">
-                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="add-to-cart" onclick="addProductToCart(this)">Add to Cart</button>
                             <button class="view-details">View Details</button>
                         </div>
                     </div>
                 </div>
                 <!-- Coconut Oil -->
-                <div class="product-card" data-category="coconut">
+                <div class="product-card" data-category="coconut" data-product-id="coconut-oil">
                     <div class="product-badge">Organic</div>
                     <div class="product-image">
                         <img src="https://www.corolilife.com/wp-content/uploads/2020/11/shutterstock_1450760213-scaled.jpg" alt="Coconut Oil">
@@ -308,13 +323,13 @@
                             <span class="sale-price">Rs. 700.00</span>
                         </div>
                         <div class="product-actions">
-                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="add-to-cart" onclick="addProductToCart(this)">Add to Cart</button>
                             <button class="view-details">View Details</button>
                         </div>
                     </div>
                 </div>
                 <!-- Coconut Sugar -->
-                <div class="product-card" data-category="coconut">
+                <div class="product-card" data-category="coconut" data-product-id="coconut-sugar">
                     <div class="product-badge">Natural</div>
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Coconut Sugar">
@@ -331,13 +346,13 @@
                             <span class="sale-price">Rs. 400.00</span>
                         </div>
                         <div class="product-actions">
-                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="add-to-cart" onclick="addProductToCart(this)">Add to Cart</button>
                             <button class="view-details">View Details</button>
                         </div>
                     </div>
                 </div>
                 <!-- Herbal Infusions -->
-                <div class="product-card" data-category="herbal">
+                <div class="product-card" data-category="herbal" data-product-id="herbal-infusions">
                     <div class="product-badge">Wellness</div>
                     <div class="product-image">
                         <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Herbal Infusions">
@@ -354,7 +369,7 @@
                             <span class="sale-price">Rs. 300.00</span>
                         </div>
                         <div class="product-actions">
-                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="add-to-cart" onclick="addProductToCart(this)">Add to Cart</button>
                             <button class="view-details">View Details</button>
                         </div>
                     </div>
@@ -424,6 +439,103 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <script src="../js/cart.js"></script>
     <script src="../js/script.js"></script>
+    
+    <script>
+        // Function to add products to cart
+        function addProductToCart(button) {
+            const productCard = button.closest('.product-card');
+            const productId = productCard.dataset.productId;
+            const productName = productCard.querySelector('h3').textContent;
+            const productDescription = productCard.querySelector('.product-description').textContent;
+            const productImage = productCard.querySelector('img').src;
+            const productWeight = productCard.querySelector('.weight').textContent;
+            const productOrigin = productCard.querySelector('.origin').textContent;
+            const originalPrice = productCard.querySelector('.original-price')?.textContent.replace('Rs. ', '') || null;
+            const salePrice = productCard.querySelector('.sale-price').textContent.replace('Rs. ', '');
+            
+            const productData = {
+                id: productId,
+                name: productName,
+                description: productDescription,
+                image: productImage,
+                weight: productWeight,
+                origin: productOrigin,
+                originalPrice: originalPrice,
+                salePrice: salePrice
+            };
+            
+            // Add to cart
+            if (window.cart) {
+                window.cart.addItem(productData);
+            } else {
+                // Fallback if cart is not initialized
+                const existingCart = JSON.parse(localStorage.getItem('ceynatura-cart')) || [];
+                const existingItem = existingCart.find(item => item.id === productId);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    existingCart.push({
+                        ...productData,
+                        quantity: 1
+                    });
+                }
+                
+                localStorage.setItem('ceynatura-cart', JSON.stringify(existingCart));
+                
+                // Show success notification
+                showNotification(`${productName} added to cart!`, 'success');
+            }
+            
+            // Add animation to button
+            button.style.transform = 'scale(0.95)';
+            button.textContent = 'Added!';
+            button.style.background = '#4a7c59';
+            
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+                button.textContent = 'Add to Cart';
+                button.style.background = '';
+            }, 1000);
+        }
+        
+        // Notification function for products page
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#4a7c59' : '#3498db'};
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+                z-index: 10000;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                font-weight: 500;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
+                        document.body.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+    </script>
 </body>
 </html> 

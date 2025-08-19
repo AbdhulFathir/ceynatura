@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - CeyNatura Premium Ceylon Spices, Tea & Organic Products</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/cart.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-emblem">
+                    <div class="logo-circle">
+                        <div class="sri-lanka-map"></div>
+                        <div class="logo-leaves"></div>
+                        <div class="logo-waves"></div>
+                    </div>
+                </div>
+                <span class="logo-text">CeyNatura</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="cart.html" class="nav-link cart-link active">
+                        <i class="fas fa-shopping-cart"></i>
+                        Cart
+                        <span class="cart-count" style="display: none;">0</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Hero Section -->
+    <section class="cart-hero">
+        <div class="container">
+            <div class="section-header">
+                <h1>Shopping Cart</h1>
+                <p>Review your selected items and proceed to checkout</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-layout">
+                <!-- Cart Items -->
+                <div class="cart-items">
+                    <div class="cart-header">
+                        <h2>Cart Items (<span id="cart-count">0</span>)</h2>
+                        <button class="clear-cart" id="clearCart">Clear Cart</button>
+                    </div>
+                    
+                    <div class="cart-items-container" id="cartItemsContainer">
+                        <!-- Cart items will be dynamically populated here -->
+                        <div class="empty-cart" id="emptyCart">
+                            <div class="empty-cart-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <h3>Your cart is empty</h3>
+                            <p>Add some products from our collection to get started</p>
+                            <a href="products.html" class="btn btn-primary">Continue Shopping</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="cart-summary">
+                    <div class="summary-card">
+                        <h3>Order Summary</h3>
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">Rs. 0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping:</span>
+                            <span id="shipping">Rs. 0.00</span>
+                        </div>
+                        <div class="summary-row discount-row" id="discountRow" style="display: none;">
+                            <span>Discount:</span>
+                            <span id="discount">-Rs. 0.00</span>
+                        </div>
+                        <div class="summary-divider"></div>
+                        <div class="summary-row total-row">
+                            <span>Total:</span>
+                            <span id="total">Rs. 0.00</span>
+                        </div>
+                        
+                        <div class="coupon-section">
+                            <div class="coupon-input">
+                                <input type="text" id="couponCode" placeholder="Enter coupon code">
+                                <button id="applyCoupon">Apply</button>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-checkout" id="checkoutBtn" disabled>
+                            Proceed to Checkout
+                        </button>
+                        
+                        <div class="secure-checkout">
+                            <i class="fas fa-lock"></i>
+                            <span>Secure checkout powered by SSL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-emblem">
+                            <div class="logo-circle">
+                                <div class="sri-lanka-map"></div>
+                                <div class="logo-leaves"></div>
+                                <div class="logo-waves"></div>
+                            </div>
+                        </div>
+                        <span class="logo-text">CeyNatura</span>
+                    </div>
+                    <p>Bringing the authentic taste of Ceylon spices, teas, coconut products, and more to your kitchen.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="products.html">Black Pepper</a></li>
+                        <li><a href="products.html">Cinnamon</a></li>
+                        <li><a href="products.html">Cardamom</a></li>
+                        <li><a href="products.html">Nutmeg</a></li>
+                        <li><a href="products.html">Ceylon Tea</a></li>
+                        <li><a href="products.html">Coconut Oil</a></li>
+                        <li><a href="products.html">Coconut Sugar</a></li>
+                        <li><a href="products.html">Herbal Infusions</a></li>
+                        <li><a href="products.html">Other Organic Products</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CeyNatura. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/cart.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

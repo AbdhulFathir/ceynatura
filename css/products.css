@@ -18,7 +18,27 @@
     font-size: 1.2rem;
     color: var(--gray);
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 auto 2rem auto;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.hero-actions .cart-count {
+    background: var(--primary-green);
+    color: var(--white);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
 }
 
 /* Products Filter Section */
