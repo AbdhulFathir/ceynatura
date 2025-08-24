@@ -39,6 +39,13 @@ body {
     margin-right: 10px;
 }
 
+.logo-image {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    object-fit: contain;
+}
+
 .logo-circle {
     width: 40px;
     height: 40px;
