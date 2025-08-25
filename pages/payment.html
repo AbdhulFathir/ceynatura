@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway - CeyNatura Premium Ceylon Spices, Tea & Organic Products</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/payment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../images/Logo.svg" alt="CeyNatura Logo" class="logo-image">
+                <span class="logo-text">CeyNatura</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="cart.html" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        Cart
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Order Confirmation Hero Section -->
+    <section class="order-hero">
+        <div class="container">
+            <div class="section-header">
+                <h1>Confirm Your Order</h1>
+                <p>Review your order details and provide shipping information to complete your purchase</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Confirmation Section -->
+    <section class="order-section">
+        <div class="container">
+            <div class="order-layout">
+                <!-- Order Form -->
+                <div class="order-form-container">
+                    <div class="order-form-card">
+                        <div class="form-header">
+                            <h2><i class="fas fa-shipping-fast"></i> Order Details</h2>
+                            <p>Please provide your shipping information to complete your order</p>
+                        </div>
+                        
+                        <form id="orderForm" class="order-form" method="POST">
+                            <input type="hidden" name="access_key" value="3370c1b1-4818-4681-8d21-6c6bb9ec00da">
+                            <!-- Personal Information -->
+                            <div class="form-section">
+                                <h3>Personal Information</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name *</label>
+                                        <input type="text" id="firstName" name="firstName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name *</label>
+                                        <input type="text" id="lastName" name="lastName" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                            </div>
+
+                            <!-- Shipping Address -->
+                            <div class="form-section">
+                                <h3>Shipping Address</h3>
+                                <div class="form-group">
+                                    <label for="address">Street Address *</label>
+                                    <input type="text" id="address" name="address" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="city">City *</label>
+                                        <input type="text" id="city" name="city" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="postalCode">Postal Code *</label>
+                                        <input type="text" id="postalCode" name="postalCode" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="country">Country *</label>
+                                    <select id="country" name="country" required>
+                                        <option value="">Select Country</option>
+                                        <option value="LK">Sri Lanka</option>
+                                        <option value="US">United States</option>
+                                        <option value="UK">United Kingdom</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="AU">Australia</option>
+                                        <option value="DE">Germany</option>
+                                        <option value="FR">France</option>
+                                        <option value="IN">India</option>
+                                        <option value="JP">Japan</option>
+                                        <option value="SG">Singapore</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Additional Information -->
+                            <div class="form-section">
+                                <h3>Additional Information</h3>
+                                <div class="form-group">
+                                    <label for="notes">Order Notes (Optional)</label>
+                                    <textarea id="notes" name="notes" rows="3" placeholder="Any special instructions or notes for your order..."></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Terms and Conditions -->
+                            <div class="form-section">
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="termsAccepted" name="termsAccepted" required>
+                                        <span class="checkmark"></span>
+                                        I agree to the <a href="#" class="terms-link">Terms and Conditions</a> and <a href="#" class="terms-link">Privacy Policy</a> *
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="newsletter" name="newsletter">
+                                        <span class="checkmark"></span>
+                                        Subscribe to our newsletter for updates and special offers
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="form-section">
+                                <button type="submit" class="btn btn-confirm" id="confirmButton">
+                                    <i class="fas fa-check-circle"></i>
+                                    Confirm Order
+                                </button>
+                                <div class="order-info">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>We'll contact you shortly to arrange payment and delivery</span>
+                                </div>
+                                <div id="result"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary-container">
+                    <div class="order-summary-card">
+                        <h3>Order Summary</h3>
+                        <div class="order-items" id="orderItems">
+                            <!-- Order items will be populated here -->
+                        </div>
+                        
+                        <div class="order-totals">
+                            <div class="total-row">
+                                <span>Subtotal:</span>
+                                <span id="orderSubtotal">Rs. 0.00</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Shipping:</span>
+                                <span id="orderShipping">Rs. 0.00</span>
+                            </div>
+                            <div class="total-row discount-row" id="orderDiscountRow" style="display: none;">
+                                <span>Discount:</span>
+                                <span id="orderDiscount">-Rs. 0.00</span>
+                            </div>
+                            <div class="total-divider"></div>
+                            <div class="total-row total-amount">
+                                <span>Total:</span>
+                                <span id="orderTotal">Rs. 0.00</span>
+                            </div>
+                        </div>
+
+                        <div class="back-to-cart">
+                            <a href="cart.html" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i>
+                                Back to Cart
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../images/Logo.svg" alt="CeyNatura Logo" class="logo-image">
+                        <span class="logo-text">CeyNatura</span>
+                    </div>
+                    <p>Bringing the authentic taste of Ceylon spices, teas, coconut products, and more to your kitchen.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="products.html">Black Pepper</a></li>
+                        <li><a href="products.html">Cinnamon</a></li>
+                        <li><a href="products.html">Cardamom</a></li>
+                        <li><a href="products.html">Nutmeg</a></li>
+                        <li><a href="products.html">Ceylon Tea</a></li>
+                        <li><a href="products.html">Coconut Oil</a></li>
+                        <li><a href="products.html">Coconut Sugar</a></li>
+                        <li><a href="products.html">Herbal Infusions</a></li>
+                        <li><a href="products.html">Other Organic Products</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CeyNatura. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/order-confirmation.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

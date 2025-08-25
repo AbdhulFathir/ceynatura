@@ -291,13 +291,17 @@ class Cart {
             return;
         }
 
-        // For now, just show a success message
-        // In a real application, this would redirect to a checkout page
+        // Save coupon data to localStorage for payment page
+        if (this.appliedCoupon) {
+            localStorage.setItem('ceynatura-coupon', JSON.stringify(this.appliedCoupon));
+        }
+
+        // Show notification and redirect to payment page
         this.showNotification('Proceeding to checkout...', 'success');
         
-        // Simulate checkout process
+        // Redirect to payment page after a short delay
         setTimeout(() => {
-            this.showNotification('Checkout functionality coming soon!', 'info');
+            window.location.href = 'payment.html';
         }, 1000);
     }
 
