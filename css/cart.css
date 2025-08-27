@@ -306,14 +306,14 @@
 }
 
 .coupon-input button:hover {
-    background: var(--dark-green);
+    background: linear-gradient(135deg, var(--secondary-green) 0%, var(--primary-green) 100%);
 }
 
 /* Checkout Button */
 .btn-checkout {
     width: 100%;
     padding: 15px;
-    background: var(--primary-green);
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
     color: var(--white);
     border: none;
     border-radius: 10px;
@@ -325,7 +325,7 @@
 }
 
 .btn-checkout:hover:not(:disabled) {
-    background: var(--dark-green);
+    background: linear-gradient(135deg, var(--secondary-green) 0%, var(--primary-green) 100%);
     transform: translateY(-2px);
 }
 
