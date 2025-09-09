@@ -378,3 +378,30 @@ body {
         padding: 0 15px;
     }
 } 
+
+/* Form submission result styling (shared) */
+.form-result {
+    display: none;
+    margin-top: 16px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-weight: 500;
+    line-height: 1.4;
+    background: #f6f9f6;
+    border: 1px solid #e3efe3;
+    color: #2d5016;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    transition: all 0.25s ease;
+}
+
+.form-result.show { display: block; }
+
+.form-result .result-content { display: flex; align-items: center; gap: 10px; }
+.form-result .result-icon { font-size: 18px; }
+
+.form-result.is-loading { background: #f7fbff; border-color: #d8ebff; color: #0b5cab; }
+.form-result.is-success { background: #f4fff7; border-color: #cdebd6; color: #1b6e33; }
+.form-result.is-error { background: #fff6f6; border-color: #f3d0d0; color: #a32e2e; }
+
+.form-result.fade-in { animation: fr-fade-in 0.3s ease forwards; }
+@keyframes fr-fade-in { from { opacity: 0; transform: translateY(6px);} to { opacity: 1; transform: translateY(0);} }

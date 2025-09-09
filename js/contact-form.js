@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('form');
     const result = document.getElementById('result');
     
-    if (form) {
+    if (form && result) {
         form.addEventListener('submit', function(e) {
             const formData = new FormData(form);
             e.preventDefault();
@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const object = Object.fromEntries(formData);
             const json = JSON.stringify(object);
 
-            result.innerHTML = "Please wait..."
+            // Show loading state
+            setResultState(result, 'loading', 'Sending your message...');
 
             fetch('https://api.web3forms.com/submit', {
                     method: 'POST',
@@ -24,25 +25,47 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(async (response) => {
                     let json = await response.json();
                     if (response.status == 200) {
-                        result.innerHTML = json.message;
+                        setResultState(result, 'success', json.message || 'Thanks! Your message has been sent.');
                     } else {
                         console.log(response);
-                        result.innerHTML = json.message;
+                        setResultState(result, 'error', json.message || 'Sorry, something went wrong.');
                     }
                 })
                 .catch(error => {
                     console.log(error);
-                    result.innerHTML = "Something went wrong!";
+                    setResultState(result, 'error', 'Network error. Please try again.');
                 })
                 .then(function() {
                     form.reset();
                     setTimeout(() => {
-                        result.style.display = "none";
-                    }, 3000);
+                        result.classList.remove('show', 'fade-in', 'is-loading', 'is-success', 'is-error');
+                    }, 3500);
                 });
         });
     }
 });
+
+function setResultState(resultEl, state, message) {
+    resultEl.classList.remove('is-loading', 'is-success', 'is-error');
+    const content = resultEl.querySelector('.result-content');
+    let icon = '';
+    if (state === 'loading') {
+        resultEl.classList.add('is-loading');
+        icon = '<span class="result-icon"><i class="fas fa-spinner fa-spin"></i></span>';
+    } else if (state === 'success') {
+        resultEl.classList.add('is-success');
+        icon = '<span class="result-icon"><i class="fas fa-check-circle"></i></span>';
+    } else if (state === 'error') {
+        resultEl.classList.add('is-error');
+        icon = '<span class="result-icon"><i class="fas fa-exclamation-circle"></i></span>';
+    }
+    if (content) {
+        content.innerHTML = icon + '<span>' + message + '</span>';
+    } else {
+        resultEl.innerHTML = icon + '<span>' + message + '</span>';
+    }
+    resultEl.classList.add('show', 'fade-in');
+}
 
 // Add some interactive features for the contact form
 document.addEventListener('DOMContentLoaded', function() {
