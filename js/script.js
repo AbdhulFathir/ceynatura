@@ -187,48 +187,7 @@ function showNotification(message) {
     }, 3000);
 }
 
-// Form Submission for index.html contact form
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.querySelector('.contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data for index.html form structure
-            const name = this.querySelector('input[placeholder="Your Name"]').value;
-            const email = this.querySelector('input[placeholder="Your Email"]').value;
-            const subject = this.querySelector('input[placeholder="Subject"]').value;
-            const message = this.querySelector('textarea[placeholder="Your Message"]').value;
-            
-            // Simple validation
-            if (!name || !email || !subject || !message) {
-                showNotification('Please fill in all fields!');
-                return;
-            }
-            
-            // Simulate form submission
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                submitBtn.textContent = 'Message Sent!';
-                submitBtn.style.background = '#4a7c59';
-                
-                setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.style.background = '';
-                    this.reset();
-                }, 2000);
-                
-                showNotification('Thank you! Your message has been sent.');
-            }, 1500);
-        });
-    }
-});
+// (Removed) Index form simulated submit handler to use Web3Forms handler instead
 
 // Parallax Effect for Hero Section
 window.addEventListener('scroll', () => {
